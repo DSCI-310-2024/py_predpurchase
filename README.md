@@ -17,50 +17,7 @@ $ pip install py_predpurchase
 * Fit a given model, and extract feature importances, sorted in descending order, and returns them as a DataFrame.
 * Calculate the classification metrics for model predictions including precision, recall, accuracy and F1 scores.
 
-... as follows:
-
-``` python
-from py_predpurchase.function_preprocessing import numerical_categorical_preprocess
-
-from py_prepurchase.function_model_cross_val import model_cross_validation
-
-from py_prepurchase.function_feature_importance import get_feature_importances
-
-from py_prepurchase.function_classification_metrics import calculate_classification_metrics
-
-import pandas as pd
-import numpy as np
-
-x_train = "X_train.csv" # path to your x train data
-X_test = "X_test.csv" # path to your x test data
-numeric_features = "numeric_features" # path to, or object (eg. list of strings) containing names of numerical features 
-categorical_features = "categorical_features"  # path to, or object (eg. list of strings) containing categorical features 
-
-preprocessed_data = numerical_categorical_preprocess(x_train, x_test, numeric_features, categorical_features)
-
-preprocessed_training_data = "processed_training.csv" # path to preprocessed training data
-preprocessed_testing_data = "processed_testing.csv" # path to preprocessed testing data
-k = 5 # k value hyperparameter for KNearestNeighbor
-target= "target_name" # str target column name
-gamma= 10 # gamma value hyperparameter for SVM
-
-
-cross_val_results = model_cross_validation(preprocessed_training_data, preprocessed_testing_data, target, k, gamma)
-
-
-model = RandomForestClassifier(max_depth=2, random_state=0)
-model.fit(X, y) # tree-based model, fitted on data
-X_columns = ['a', 'b', 'c'] # names of features from the model
-
-get_feature_importances(model, X_columns)
-
-y_true = "y_test.csv" # path to y_test data (true y values)
-y_pred = "y_pred.csv" # path to predicted target, given explanatory (X) features that the model was fitted on.  
-
-calculate_classification_metrics(y_true, y_pred)
-
-
-```
+**Please refer to the 'Example usage' page to see an interactive, step by step, demonstration of each function in this package.
 
 ## Contributing
 
