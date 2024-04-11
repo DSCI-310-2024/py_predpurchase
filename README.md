@@ -25,7 +25,7 @@ $ pip install py_predpurchase
 
 Below is an example usage for one of our functions, `calculate_classification_metrics` 
 
-```
+``` python
 
 import py_predpurchase
 import pandas as pd
