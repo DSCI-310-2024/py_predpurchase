@@ -27,7 +27,7 @@ jobs:
       run: poetry run pytest tests/ --cov=py_predpurchase --cov-report=xml
 
     - name: Use Codecov to track coverage
-      uses: codecov/codecov-action@v2
+      uses: codecov/codecov-action@v4.0.1
       with:
         files: ./coverage.xml   # coverage report
 
