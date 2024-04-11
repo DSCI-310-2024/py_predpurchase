@@ -1,6 +1,6 @@
 # py_predpurchase
 
-```py_predpurchase```is a package for predicting online shopper purchasing intentions, containing functions to aid with data analysis processes including conducting data preprocessing as well as calculating classification metrics, cross validation scores and feature importances.
+```py_predpurchase``` is a package for predicting online shopper purchasing intentions, whether an online shopper will make a purchase from their current browsing session or not. This package contains functions to aid with the data analysis processes including conducting data preprocessing as well as calculating classification metrics, cross validation scores and feature importances.
 
 ## Installation
 
