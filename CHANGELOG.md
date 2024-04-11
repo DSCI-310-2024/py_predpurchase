@@ -1,7 +1,6 @@
 # CHANGELOG
 
 
-
 ## v0.1.0 (2024-04-11)
 
 ### Build
@@ -47,3 +46,4 @@ Clarified purchasing intentions in the introduction ([`bbb2231`](https://github.
 * removing ci/cd yml file for now ([`95dbb01`](https://github.com/DSCI-310-2024/py_predpurchase/commit/95dbb01f2147361fb3c187d50ffd2ad85d109a97))
 
 * initial package setup ([`6ea0b59`](https://github.com/DSCI-310-2024/py_predpurchase/commit/6ea0b59d454aa997515ef49452f152e4edb50045))
+
