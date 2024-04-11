@@ -12,8 +12,8 @@ def model_cross_validation(preprocessed_training_data, preprocessed_testing_data
 	using preprocessed and cleaned training and testing datasets. Random forests and Dummy hyperparameters are fixed for simplicity sake.
 	
 	Parameters:
-	- preprocessed_training_data: csv, cleaned and preprocessed training data 
-	- preprocessed_testing_data: csv, cleaned and preprocessed testing data
+	- preprocessed_training_data: DataFrame, cleaned and preprocessed training data 
+	- preprocessed_testing_data: DataFrame, cleaned and preprocessed testing data
 	- target: str target column name
 	- k: k value hyperparameter for KNearestNeighbours Int
 	- gamma: gamma value hyperparameter for SVM
@@ -22,8 +22,8 @@ def model_cross_validation(preprocessed_training_data, preprocessed_testing_data
 	- dictionary, containing cross validation results (mean and std of scores) from specified model
 	"""
 
-	train_data = pd.read_csv(preprocessed_training_data)
-	test_data = pd.read_csv(preprocessed_testing_data)
+	train_data = preprocessed_training_data
+	test_data = preprocessed_testing_data
 	X_train = train_data.drop(target, axis=1)
 	y_train = train_data[target]
 	X_test = test_data.drop(target, axis=1)
