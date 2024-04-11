@@ -1,118 +1,56 @@
 import pandas as pd
-import numpy as np
 import pytest
 import sys
 import os
 
-
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.function_preprocessing import numerical_categorical_preprocess
-
+from src.function_model_cross_val import model_cross_validation
 
 @pytest.fixture
-def sample_data():
-    
-    numeric_features = ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay']
-    categorical_features = ['Month', 'VisitorType']
-    
-    # Sample data setup
-    X_train = pd.DataFrame({
-        'Administrative': [1, 2, 3],
-        'Administrative_Duration': [10, 20, 30],
-        'Informational': [4, 5, 6],
-        'Informational_Duration': [40, 50, 60],
-        'ProductRelated': [7, 8, 9],
-        'ProductRelated_Duration': [70, 80, 90],
-        'BounceRates': [0.1, 0.2, 0.3],
-        'ExitRates': [0.4, 0.5, 0.6],
-        'PageValues': [0.7, 0.8, 0.9],
-        'SpecialDay': [0.0, 0.1, 0.2],
-        'Month': ['Jan', 'Feb', 'Mar'],
-        'VisitorType': ['New_Visitor', 'Returning_Visitor', 'Other'],
-        
-    })
+def test_data():
+    # Create a mock dataframe with the expected structure
+    data = pd.DataFrame({
+    "feature1": [1, 2, 3, 4, 5, 2, 2, 3, 3, 3, 3],
+    "feature2": [5, 4, 3, 2, 1, 4, 0, 5, 5, 5, 5],
+    'target': [0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0]
+})
+    return(data)
 
-    X_test = pd.DataFrame({
-        'Administrative': [4, 5, 6],
-        'Administrative_Duration': [40, 50, 60],
-        'Informational': [7, 8, 9],
-        'Informational_Duration': [70, 80, 90],
-        'ProductRelated': [10, 11, 12],
-        'ProductRelated_Duration': [100, 110, 120],
-        'BounceRates': [0.4, 0.5, 0.6],
-        'ExitRates': [0.7, 0.8, 0.9],
-        'PageValues': [1.0, 1.1, 1.2],
-        'SpecialDay': [0.3, 0.4, 0.5],
-        'Month': ['Apr', 'May', 'Jun'],
-        'VisitorType': ['Returning_Visitor', 'New_Visitor', 'Other'],
-        
-    })
 
-    y_train = pd.Series([0, 1, 0], name='Revenue')
-    y_test = pd.Series([1, 0, 1], name='Revenue')
-
-    return X_train, X_test, y_train, y_test, numeric_features, categorical_features
-
-def test_shape(sample_data):
+def test_model_cross_validation_results(test_data):
     """
-    Tests that the transformed training and testing data retain the same number of rows
-    to ensure no data loss occured during preprocessing.
+    This test checks if the model_cross_validation function returns results 
+    for all the expected models: 'dummy', 'knn', 'SVM', and 'random_forest'.
     """
+    results = model_cross_validation(test_data, test_data, 'target', 3, 0.01)
 
-    X_train, X_test, y_train, y_test, numeric_features, categorical_features = sample_data
-    train_transformed, test_transformed, _ = numerical_categorical_preprocess(X_train, X_test, y_train, y_test, numeric_features, categorical_features)
-    
-    assert train_transformed.shape[0] == X_train.shape[0], "Train data row count mismatch after transformation."
-    assert test_transformed.shape[0] == X_test.shape[0], "Test data row count mismatch after transformation."
+    assert all(model in results for model in ['dummy', 'knn', 'SVM', 'random_forest']), "All expected models should be in the output."
 
-def test_null_values(sample_data):
-
+def test_model_cross_validation_scores(test_data):
     """
-    Ensures there are no null values in the transformed datasets
-
+    This test verifies that the model_cross_validation function returns scores for each model,
+    including 'fit_time', 'score_time', 'test_score', and 'train_score'. It also checks if the
+    test score falls within the valid range of 0 to 1.
     """
+    results = model_cross_validation(test_data, test_data, 'target', 3, 0.01)
 
-    X_train, X_test, _, _, numeric_features, categorical_features = sample_data
-    train_transformed, test_transformed, _ = numerical_categorical_preprocess(X_train, X_test, None, None, numeric_features, categorical_features)
-    assert not train_transformed.isnull().any().any(), "Null values found in transformed training data"
-    assert not test_transformed.isnull().any().any(), "Null values found in transformed test data"
+    for model, scores in results.items():
+        assert 'fit_time' in scores, f"Fit time should be in the {model} model scores."
+        assert 'score_time' in scores, f"Score time should be in the {model} model scores."
+        assert 'test_score' in scores, f"Test score should be in the {model} model scores."
+        assert 'train_score' in scores, f"Train score should be in the {model} model scores."
+        assert 0 <= float(scores['test_score'].split()[0]) <= 1, f"Test score for {model} should be between 0 and 1."
 
-
-def test_revenue_preservation(sample_data):
-
+def test_invalid_parameters(test_data):
     """
-    Tests that the 'Revenue' target column is kept unaltered after preprocessing.
+    This test uses pytest.raises to check if model_cross_validation raises a ValueError
+    when provided with invalid parameters, such as a negative 'k' value or a negative 'gamma' value.
     """
+    with pytest.raises(ValueError):
+        model_cross_validation(test_data, test_data, 'target', -1, 0.01)
 
-    X_train, X_test, y_train, y_test, numeric_features, categorical_features = sample_data
-    train_transformed, test_transformed, _ = numerical_categorical_preprocess(X_train, X_test, y_train, y_test, numeric_features, categorical_features)
-    
-    assert np.array_equal(train_transformed['Revenue'], y_train), "Revenue data altered in training set."
-    assert np.array_equal(test_transformed['Revenue'], y_test), "Revenue data altered in testing set."
+    with pytest.raises(ValueError):
+        model_cross_validation(test_data, test_data, 'target', 3, -0.01)
 
-def test_numerical_features_transformation(sample_data):
-    """
-    Tests that all specified numeric features are included in the transformed data
-    with the correct application of scaling.
-    """
-
-    X_train, X_test, y_train, y_test, numeric_features, _ = sample_data
-    train_transformed, test_transformed, transformed_columns = numerical_categorical_preprocess(X_train, X_test, y_train, y_test, numeric_features, [])
-    
-    for feature in numeric_features:
-        assert any(col.startswith(f'numeric__{feature}') for col in transformed_columns), f"Numeric feature '{feature}' not found in transformed columns."
-
-def test_categorical_features_transformation(sample_data):
-    """
-    Tests that categorical features are correctly one-hot encoded and included in the transformed
-    data, which will be indicted by the presence of transformed column names.
-    """
-    X_train, X_test, y_train, y_test, _, categorical_features = sample_data
-    train_transformed, test_transformed, transformed_columns = numerical_categorical_preprocess(X_train, X_test, y_train, y_test, [], categorical_features)
-    
-    for feature in categorical_features:
-        feature_columns = [col for col in transformed_columns if col.startswith(f'categorical__{feature}')]
-        assert len(feature_columns) > 0, f"Categorical feature '{feature}' not found in transformed columns."
-
-if __name__ == "__main__":
-    pytest.main()
+if __name__ == '__main__':
+    pytest.main([__file__])
