@@ -27,8 +27,6 @@ Below is an example usage for one of our functions, `calculate_classification_me
 
 ``` python
 
-import py_predpurchase
-import pandas as pd
 import numpy as np
 from py_predpurchase.function_classification_metrics import calculate_classification_metrics
 
