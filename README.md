@@ -17,7 +17,7 @@ $ pip install py_predpurchase
 * Fit a given model, and extract feature importances, sorted in descending order, and returns them as a DataFrame.
 * Calculate the classification metrics for model predictions including precision, recall, accuracy and F1 scores.
 
-**Please refer to the 'Example usage' page to see an interactive, step by step, demonstration of each function in this package.
+*Please refer to the 'Example usage' page to see an interactive, step by step, demonstration of each function in this package.*
 
 ## Contributing
 
