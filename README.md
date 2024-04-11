@@ -31,10 +31,6 @@ from py_prepurchase.function_classification_metrics import calculate_classificat
 import pandas as pd
 import numpy as np
 
-from pycounts.pycounts import count_words
-from pycounts.plotting import plot_words
-import matplotlib.pyplot as plt
-
 x_train = "X_train.csv" # path to your x train data
 X_test = "X_test.csv" # path to your x test data
 numeric_features = "numeric_features" # path to, or object (eg. list of strings) containing names of numerical features 
@@ -45,11 +41,11 @@ preprocessed_data = numerical_categorical_preprocess(x_train, x_test, numeric_fe
 preprocessed_training_data = "processed_training.csv" # path to preprocessed training data
 preprocessed_testing_data = "processed_testing.csv" # path to preprocessed testing data
 k = 5 # k value hyperparameter for KNearestNeighbor
-target: "target_name" # str target column name
-gamma: 10 # gamma value hyperparameter for SVM
+target= "target_name" # str target column name
+gamma= 10 # gamma value hyperparameter for SVM
 
 
-cross_val_results = model_cross_validation(preprocessed_training_data, preprocessed_testing_data, target, k, gamma):
+cross_val_results = model_cross_validation(preprocessed_training_data, preprocessed_testing_data, target, k, gamma)
 
 
 model = RandomForestClassifier(max_depth=2, random_state=0)
