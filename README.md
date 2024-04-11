@@ -10,7 +10,7 @@ $ pip install py_predpurchase
 
 ## Usage
 
-```py_pred``` can be used to:
+```py_predpurchase``` can be used to:
 
 * Apply preprocessing transformations to the data, including scaling, encoding, and passing through features as specified.
 * Calculate the cross validation results for a four common off-the-shelf models (Dummy, KNN, SVM and RandomForests)
