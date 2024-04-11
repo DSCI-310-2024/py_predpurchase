@@ -7,7 +7,7 @@ from sklearn.datasets import make_classification
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LinearRegression
 
-from src.py_predpurchase import get_feature_importances 
+from py_predpurchase.function_feature_importance import get_feature_importances 
 
 # creating a mock model
 

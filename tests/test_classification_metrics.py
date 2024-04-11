@@ -4,7 +4,7 @@ import sys
 import os
 
 
-from src.py_predpurchase import calculate_classification_metrics
+from py_predpurchase.function_classification_metrics import calculate_classification_metrics
 
 def test_perfect_predictions():
     """

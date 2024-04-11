@@ -3,7 +3,7 @@ import pytest
 import sys
 import os
 
-from src.py_predpurchase import model_cross_validation
+from py_predpurchase.function_model_cross_val import model_cross_validation
 
 @pytest.fixture
 def test_data():
