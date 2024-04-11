@@ -3,8 +3,7 @@ import pytest
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.function_model_cross_val import model_cross_validation
+from src.py_predpurchase import model_cross_validation
 
 @pytest.fixture
 def test_data():

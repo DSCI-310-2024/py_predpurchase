@@ -3,8 +3,8 @@ import pytest
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.function_classification_metrics import calculate_classification_metrics
+
+from src.py_predpurchase import calculate_classification_metrics
 
 def test_perfect_predictions():
     """
