@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "py_predpurchase"
 version = "0.1.0"
-description = "```py_predpurchase```is a package for predicting online shopper purchasing intentions, containing functions to aid with data analysis processes including conducting data preprocessing as well as calculating classification metrics, cross validation scores and feature importances.The package features functions that focus mainly on analyzing the data and evaluating model performance. 0.1.0"
+description = "```py_predpurchase```is a package for predicting online shopper purchasing intentions, containing functions to aid with data analysis processes including conducting data preprocessing as well as calculating classification metrics, cross validation scores and feature importances.The package features functions that focus mainly on analyzing the data and evaluating model performance."
 authors = ["Nour Abdelfattah, Sana Shams, Calvin Choi, Sai Pusuluri"]
 license = "MIT"
 readme = "README.md"
