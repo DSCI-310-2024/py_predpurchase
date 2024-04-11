@@ -21,7 +21,25 @@ $ pip install py_predpurchase
 * Fit a given model, and extract feature importances, sorted in descending order, and returns them as a DataFrame.
 * Calculate the classification metrics for model predictions including precision, recall, accuracy and F1 scores.
 
-*Please refer to the 'Example usage' page to see an interactive, step by step, demonstration of each function in this package.*
+*Please refer to the 'Example usage' page on the [Read the Docs](https://py-predpurchase.readthedocs.io/en/latest/index.html) package documentation for a step by step, demonstration of each function in this package.*
+
+Below is an example usage for one of our functions, `calculate_classification_metrics` 
+
+```
+
+import py_predpurchase
+import pandas as pd
+import numpy as np
+from py_predpurchase.function_classification_metrics import calculate_classification_metrics
+
+# dummy data
+y_true = [1,0,1,1,1,0,0,1,0,1]
+y_pred = [1,1,1,0,1,0,0,1,0,0]
+
+# using the function
+calculate_classification_metrics(y_true, y_pred)
+
+```
 
 ## Contributing
 
