@@ -2,6 +2,13 @@
 
 
 
+## v0.1.3 (2024-04-12)
+
+### Fix
+
+* fix: added missing documentation to test_preprocessing.py ([`afb208f`](https://github.com/DSCI-310-2024/py_predpurchase/commit/afb208f4b609dedf0872d3a03d09e30534511222))
+
+
 ## v0.1.2 (2024-04-12)
 
 ### Fix
