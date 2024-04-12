@@ -2,6 +2,13 @@
 
 
 
+## v0.1.2 (2024-04-12)
+
+### Fix
+
+* fix: fixing syntax error in metrics function ([`d65e84e`](https://github.com/DSCI-310-2024/py_predpurchase/commit/d65e84e9ecb5395696ed09b6cbbfd8a1f7b1cc59))
+
+
 ## v0.1.1 (2024-04-11)
 
 ### Fix
