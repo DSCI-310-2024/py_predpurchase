@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/gh/DSCI-310-2024/py_predpurchase/graph/badge.svg?token=ykj5GDrW0K)](https://codecov.io/gh/DSCI-310-2024/py_predpurchase)
 
-```py_predpurchase``` is a package for predicting online shopper purchasing intentions, whether an online shopper will make a purchase from their current browsing session or not. This package contains functions to aid with the data analysis processes including conducting data preprocessing as well as calculating classification metrics, cross validation scores and feature importances.
+```py_predpurchase``` is a package for predicting online shopper purchasing intentions, whether an online shopper will purchase their current browsing session or not. This package contains functions to aid with the data analysis processes including conducting data preprocessing as well as calculating classification metrics, cross-validation scores and feature importances.
 
 **Full Documentation hosted on Read the Docs**: https://py-predpurchase.readthedocs.io/en/latest/index.html
 
@@ -17,11 +17,11 @@ $ pip install py_predpurchase
 ```py_predpurchase``` can be used to:
 
 * Apply preprocessing transformations to the data, including scaling, encoding, and passing through features as specified.
-* Calculate the cross validation results for a four common off-the-shelf models (Dummy, KNN, SVM and RandomForests)
-* Fit a given model, and extract feature importances, sorted in descending order, and returns them as a DataFrame.
+* Calculate the cross-validation results for four common off-the-shelf models (Dummy, KNN, SVM and RandomForests)
+* Fit a given model, extract feature importances, sort in descending order, and return them as a DataFrame.
 * Calculate the classification metrics for model predictions including precision, recall, accuracy and F1 scores.
 
-*Please refer to the 'Example usage' page on the [Read the Docs](https://py-predpurchase.readthedocs.io/en/latest/index.html) package documentation for a step by step, demonstration of each function in this package.*
+*Please refer to the 'Example usage' page on the [Read the Docs](https://py-predpurchase.readthedocs.io/en/latest/index.html) package documentation for a step-by-step, demonstration of each function in this package.*
 
 Below is an example usage for one of our functions, `calculate_classification_metrics` 
 
@@ -49,9 +49,9 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## Other packages
 
-`pandas`: While Pandas is an extensive tool for data manipulation, py_predpurchase specializes in e-commerce analytics, offering tailored functionalities that go beyond general data handling. It includes advanced features for importing e-commerce datasets, detecting unique shopping-related variables etc.py_predpurchase is for refined insights that are specifically geared towards optimizing online shopping platforms and driving sales.
+`pandas`: Pandas is an extensive tool for data manipulation, py_predpurchase specializes in applying machine learning with basic data manipulation, offering functionalities to utilize off-the-shelf machine learning models. When comparing it to something like the [E-Commerce Tools Package](https://pypi.org/project/ecommercetools/0.42.9/), our use of `pandas` along with `sklearn` allows us to manipulate and analyze data in a more primitive setting. The E-Commerce Tools Package is catered more towards transactional data with tools and functions for stock management and ledger items. `pandas` provides a simpler solution suited for the dataset used in py_predpurchase as the dataset pertains to consumer behaviour and E-Commerce marketing metrics which are less sophisticated.  
 
-`scikit-learn`: Scikit-learn excels in model building, but py_predpurchase extends its offerings by providing advanced tools for interpreting model outcomes. Unlike scikit-learn's broader approach, our package includes specific methods for detailing the impact of each predictor on the purchasing decision, allowing for a deeper understanding of model dynamics and more accurate validation scores. py_predpurchase benefits from these specialized insights and improve your model's predictive performance in the context of online shopping.
+`scikit-learn`: Scikit-learn excels in model building, but py_predpurchase extends its offerings by providing advanced tools for interpreting model outcomes. Unlike scikit-learn's broader approach, our package includes specific methods for detailing the impact of each predictor on the purchasing decision, allowing for a deeper understanding of model dynamics and more accurate validation scores. py_predpurchase benefits from these specialized insights and improves your model's predictive performance in the context of online shopping.
 
 ## Credits
 
