@@ -41,7 +41,7 @@ calculate_classification_metrics(y_true, y_pred)
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a [Code of Conduct](https://github.com/DSCI-310-2024/py_predpurchase/blob/main/CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 ## License
 
