@@ -35,7 +35,7 @@ def get_feature_importances(model, X_columns):
         raise ValueError("This model does not have the 'feature_importances_' attribute. Make sure your model is tree-based, and has been fitted on the data.")
     
     # check if X_columns is not empty
-    if not X_columns:
+    if X_columns.empty:
         raise ValueError("The list of feature names (X_columns) cannot be empty.")
 
     # obtaining feature importances
