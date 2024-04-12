@@ -2,6 +2,25 @@
 
 
 
+## v0.2.0 (2024-04-12)
+
+### Feature
+
+* feat: updated feature importance function and test ([`8acfa22`](https://github.com/DSCI-310-2024/py_predpurchase/commit/8acfa22b620a5c40a56d20a0d8dd106fd9273df0))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DSCI-310-2024/py_predpurchase ([`adae5ff`](https://github.com/DSCI-310-2024/py_predpurchase/commit/adae5ff054e8ee7ea4bff81b35e98a6c3c338eff))
+
+* Update README.md
+
+Updated the use case justification for pandas in the &#39;other packages&#39; section ([`5c20767`](https://github.com/DSCI-310-2024/py_predpurchase/commit/5c20767ec9e67cee1a268e962be295a7c7d439be))
+
+* Update README.md
+
+linked code of conduct ([`37640a6`](https://github.com/DSCI-310-2024/py_predpurchase/commit/37640a69354312a4a7e5fff1fe8b2aad1a3b6eb4))
+
+
 ## v0.1.3 (2024-04-12)
 
 ### Fix
