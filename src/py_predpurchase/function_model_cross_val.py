@@ -31,14 +31,12 @@ def model_cross_validation(preprocessed_training_data, preprocessed_testing_data
 
     Examples:
     --------
-    Assuming dataset is preprocessed and split into training and testing sets, 
-	with 'target' as the target column:
+    Assuming dataset is preprocessed and split into training and testing sets, with 'target' as the target column:
 
     >>> results = model_cross_validation(preprocessed_training_data, preprocessed_testing_data, 'target', k=5, gamma=0.1)
     >>> pd.DataFrame(results)
 
-    This will output the cross-validation results for each model, displaying the mean and 
-	standard deviation of the scores (also includes train scores).
+    This will output the cross-validation results for each model, displaying the mean and standard deviation of the scores (also includes train scores).
 
     Notes:
     -------

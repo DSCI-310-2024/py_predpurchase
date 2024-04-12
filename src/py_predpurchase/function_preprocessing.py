@@ -34,7 +34,7 @@ def numerical_categorical_preprocess(X_train, X_test, y_train, y_test, numeric_f
     into train and test
 
     >>> numeric_features = ['feature1', 'feature2']
-    >>> categorical_features = ['feature3', feature4']
+    >>> categorical_features = ['feature3', 'feature4']
     >>> train_transformed, test_transformed, transformed_columns = numerical_categorical_preprocess(
             X_train, X_test, y_train, y_test, numeric_features, categorical_features)
     

@@ -22,6 +22,7 @@ def calculate_classification_metrics(y_true, y_pred):
     --------
 
     Assume `y_true` and `y_pred` are as follows:
+    
     >>> y_true = [0, 1, 2, 0, 1]
     >>> y_pred = [0, 2, 1, 0, 0]
     >>> calculate_classification_metrics(y_true, y_pred)
