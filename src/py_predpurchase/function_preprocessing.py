@@ -8,16 +8,40 @@ def numerical_categorical_preprocess(X_train, X_test, y_train, y_test, numeric_f
     This function requires target data to be provided and includes it in the output DataFrames.
 
     Parameters:
-    - X_train: DataFrame, training feature data
-    - X_test: DataFrame, testing feature data
-    - y_train: DataFrame, training target data
-    - y_test: DataFrame, testing target data
-    - numeric_features: list, names of numeric features to scale
-    - categorical_features: list, names of categorical features to encode
-    
+    ----------
+    X_train : DataFrame
+        Training feature data.
+    X_test : DataFrame
+        Testing feature data.
+    y_train : DataFrame or Series
+        Training target data.
+    y_test : DataFrame or Series
+        Testing target data.
+    numeric_features : list
+        Names of numeric features to scale.
+    categorical_features : list
+        Names of categorical features to encode.
     
     Returns:
-    - Tuple containing preprocessed training and testing DataFrames including target data, and transformed column names
+    ----------
+    Tuple
+        Contains preprocessed training and testing DataFrames including target data, 
+        and transformed column names.
+   
+    Examples:
+    --------
+    Assume you want to transform the following features and your data set has already been split
+    into train and test
+
+    >>> numeric_features = ['feature1', 'feature2']
+    >>> categorical_features = ['feature3', 'feature4']
+    >>> train_transformed, test_transformed, transformed_columns = numerical_categorical_preprocess(
+            X_train, X_test, y_train, y_test, numeric_features, categorical_features)
+    
+    The function will transform feature1,2,3,4 accordingly, carrying out scaling and one-hot encoding and 
+    storing the preprocessed data in 'train_transformed' and 'test_transformed'. Column names will also be stored in 
+    'transformed_columns'.
+    
     """
     
     

@@ -4,14 +4,29 @@ import numpy as np
 def calculate_classification_metrics(y_true, y_pred):
     """
     Calculates classification metrics for model predictions including precision, 
-    recall, accuracy and F1 scores. 
+    recall, accuracy, and F1 scores. 
     
     Parameters:
-    - y_true: pd.Series, true target values in a dataset
-    - y_pred: pd.Series, predicted target values by the model.
+    ----------
+    y_true : array-like or pd.Series
+        True target values in a dataset.
+    y_pred : array-like or pd.Series
+        Predicted target values by the model.
     
     Returns:
-    - dict, containing precision, recall, accuracy, and F1 score.
+    ----------
+    dict
+        Contains precision, recall, accuracy, and F1 score.
+    
+    Examples:
+    --------
+
+    Assume `y_true` and `y_pred` are as follows:
+    
+    >>> y_true = [0, 1, 2, 0, 1]
+    >>> y_pred = [0, 2, 1, 0, 0]
+    >>> calculate_classification_metrics(y_true, y_pred)
+
     """
 
     if not all(isinstance(y, (int, float, np.number)) for y in np.concatenate([y_true, y_pred])):
